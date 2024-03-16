@@ -11,7 +11,8 @@ Instantiateで生成するオブジェクトにInstantiated_Object_Syncを入れ
 両手対応
 
 ## 生成したオブジェクトの同期設定例 (仮)
-※SendCustomNetworkEventでInstantiate_Objectを実行する前提でのコードです。
+※SendCustomNetworkEventでInstantiate_Objectを実行する前提でのコードです。  
+※不明な理由で、遅延を付けないとObjectが反映されませんでした。
 ```diff_csharp
 public Object_Sync_Manager manager;
 public GameObject object;
