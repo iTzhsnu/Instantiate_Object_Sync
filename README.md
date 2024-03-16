@@ -1,6 +1,6 @@
 # Instantiate_Object_Sync
 ## 入れ方
-[Unitypackageのダウンロード](https://github.com/iTzhsnu/Instantiate_Object_Sync/releases/download/1.0-pre/instantiate_object_sync.unitypackage)
+[Unitypackage](https://github.com/iTzhsnu/Instantiate_Object_Sync/releases/download/1.0-pre/instantiate_object_sync.unitypackage)
 
 ## 使い方
 ObjectSyncManager.prefabをHierarchyに入れて  
