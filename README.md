@@ -7,11 +7,12 @@ Instantiateで生成するオブジェクトにInstantiated_Object_Syncを入れ
 ピックアップ時にオブジェクトの同期が取れるようになります。  
 
 ## 機能
-ピックアップ時に、オブジェクトの位置が同期されます。
+ピックアップ時に、オブジェクトの位置が同期されます。  
 両手対応
 
 ## 生成したオブジェクトの同期設定例 (仮)
-※SendCustomNetworkEventでInstantiate_Objectを実行する前提でのコードです。
+※SendCustomNetworkEventでInstantiate_Objectを実行する前提でのコードです。  
+※不明な理由で、遅延を付けないとObjectが反映されませんでした。
 ```diff_csharp
 public Object_Sync_Manager manager;
 public GameObject object;
@@ -24,17 +25,11 @@ public void Instantiate_Object() {
 }
 
 public void AddObject() {
-  GameObject[] objects = new GameObject[manager.syncs[0].sync_objects.Length + 1];
-  for (int i = 0; manager.syncs[0].sync_objects.Length > i; ++i) {
-      objects[i] = manager.syncs[0].sync_objects[i]
-  }
-  objects[manager.syncs[0].sync_objects.Length + 1] = o;
-  foreach (Object_Manager m in manager.syncs) {
-      m.sync_objects = objects;
-  }
+  manager.AddObject(o);
 }
 ```
 
 ## TODO
 ピックアップ以外でのオブジェクトの移動時にも同期するようにする  
-Objectを簡単に入れれるメソッドを追加する
+Objectを簡単に入れれるメソッドを追加する  
+回転も綺麗に見えるようにする
