@@ -44,4 +44,37 @@ public class Object_Sync_Manager : UdonSharpBehaviour {
             Assign();
         }
     }
+
+    public int AddObject(GameObject o) {
+        GameObject[] objects = new GameObject[syncs[0].sync_objects.Length + 1];
+
+        for (int i = 0; syncs[0].sync_objects.Length > i; ++i) {
+            objects[i] = syncs[0].sync_objects[i];
+        }
+
+        objects[syncs[0].sync_objects.Length] = o;
+
+        foreach (Object_Manager manager in syncs) {
+            manager.sync_objects = objects;
+        }
+
+        return syncs[0].sync_objects.Length;
+    }
+
+    public void RemoveObject(int pos) {
+        GameObject[] objects = new GameObject[syncs[0].sync_objects.Length - 1];
+
+        for (int i = 0; syncs[0].sync_objects.Length > i; ++i) {
+            if (i == pos) continue;
+            if (i > pos) {
+                objects[i - 1] = syncs[0].sync_objects[i - 1];
+            } else {
+                objects[i] = syncs[0].sync_objects[i];
+            }
+        }
+
+        foreach (Object_Manager manager in syncs) {
+            manager.sync_objects = objects;
+        }
+    }
 }
