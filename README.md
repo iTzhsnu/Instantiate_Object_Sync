@@ -24,14 +24,7 @@ public void Instantiate_Object() {
 }
 
 public void AddObject() {
-  GameObject[] objects = new GameObject[manager.syncs[0].sync_objects.Length + 1];
-  for (int i = 0; manager.syncs[0].sync_objects.Length > i; ++i) {
-      objects[i] = manager.syncs[0].sync_objects[i]
-  }
-  objects[manager.syncs[0].sync_objects.Length + 1] = o;
-  foreach (Object_Manager m in manager.syncs) {
-      m.sync_objects = objects;
-  }
+  manager.AddObject(o);
 }
 ```
 
