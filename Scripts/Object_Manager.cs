@@ -70,7 +70,7 @@ public class Object_Manager : UdonSharpBehaviour {
 
     public void SyncObject(ushort id) {
         if (obj_id != id && tracking) {
-            this.gameObject.GetComponent<Object_Manager_Sub>().SyncObject(id);
+            GetComponent<Object_Manager_Sub>().SyncObject(id);
         } else {
             pos = sync_objects[id].transform.localPosition;
             rot = sync_objects[id].transform.eulerAngles;
